@@ -1,0 +1,12 @@
+# /etc/systemd/system/cloud_auto.service
+[Unit]
+Description=Auto add dns record to cloudflare
+After=network.target
+
+[Service]
+Restart=always
+RestartSec=1
+ExecStart=/usr/bin/python3 /root/cloud_auto.py
+
+[Install]
+WantedBy=multi-user.target
